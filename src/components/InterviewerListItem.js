@@ -1,16 +1,23 @@
 import React from "react";
+import classNames from "classnames";
 
 import "./InterviewerListItem.scss";
 
 export default function Button(props) {
+  const interviewerClass = classNames("interviewers__item", {
+    "interviewers__item--selected": props.selected,
+  });
+
+  console.log(props)
+
   return (
-    <li className="interviewers__item">
+    <li className={interviewerClass} onClick={props.setInterviewer}>
       <img
         className="interviewers__item-image"
-        src="https://i.imgur.com/LpaY82x.png"
-        alt="Sylvia Palmer"
+        src={props.avatar}
+        alt={props.name}
       />
-      Sylvia Palmer
+      {props.selected && props.name}
     </li>
   );
 }
