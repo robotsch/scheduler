@@ -14,7 +14,7 @@ export default function Button(props) {
         value={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.name === props.name}
-        onChange={() => onChange(interviewer.id)}
+        onChange={() => props.onChange(interviewer.id)}
       />
     );
   });
