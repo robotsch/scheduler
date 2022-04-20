@@ -14,7 +14,7 @@ export default function Button(props) {
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.name === props.name}
-        setInterviewer={(event) => props.setInterviewer(interviewer.id)}
+        onChange={() => onChange(interviewer.id)}
       />
     );
   });
