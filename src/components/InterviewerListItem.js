@@ -9,7 +9,7 @@ export default function Button(props) {
   });
 
   return (
-    <li className={interviewerClass} onClick={props.setInterviewer}>
+    <li className={interviewerClass} onClick={props.onChange}>
       <img
         className="interviewers__item-image"
         src={props.avatar}
