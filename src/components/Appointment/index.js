@@ -1,11 +1,11 @@
 import React from "react";
-// import classNames from "classnames";
-
 import "./styles.scss";
 
 export default function Appointment(props) {
 
   return (
-    <article className="appointment"></article>
+    <article className="appointment">
+      {props.time ? <p>Appointment at {props.time}</p> : <p>No Appointments</p>}
+    </article>
   );
 }
