@@ -11,7 +11,7 @@ export default function Button(props) {
     interviewers.push(
       <InterviewerListItem
         key={interviewer.id}
-        name={interviewer.name}
+        value={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.name === props.name}
         onChange={() => onChange(interviewer.id)}
