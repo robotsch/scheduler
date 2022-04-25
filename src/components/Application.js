@@ -50,12 +50,9 @@ export default function Application(props) {
       ...prev,
       appointments,
     }));
-    return (
-      axios
-        .put(`/api/appointments/${id}`, appointment)
-        // .then((res) => {})
-        .catch((err) => console.log(err))
-    );
+    return axios
+      .put(`/api/appointments/${id}`, appointment)
+      .catch((err) => console.log(err));
   };
 
   const cancelInterview = (id) => {
