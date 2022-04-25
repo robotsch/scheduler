@@ -45,7 +45,6 @@ export default function useApplicationData() {
         });
       }
     });
-    console.log(state.days, state.day);
     return days;
   };
 
