@@ -17,11 +17,12 @@ export default function Appointment(props) {
 
   const save = (studentName, interviewer) => {
     const interview = {
-      student: studentName, 
-      interviewer
-    }
-    props.bookInterview(props.id, interview)
-  }
+      student: studentName,
+      interviewer,
+    };
+    props.bookInterview(props.id, interview);
+    transition(SHOW);
+  };
 
   return (
     <Fragment>
@@ -34,7 +35,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === CREATE && (
-        <Form interviewers={[]} onCancel={back} onSave={save} />
+        <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
       )}
     </Fragment>
   );
