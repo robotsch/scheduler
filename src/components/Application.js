@@ -50,9 +50,15 @@ export default function Application(props) {
       ...prev,
       appointments,
     }));
+    return (
+      axios
+        .put(`/api/appointments/${id}`, appointment)
+        // .then((res) => {})
+        .catch((err) => console.log(err))
+    );
   };
 
-  const interviewers = getInterviewersForDay(state, state.day)
+  const interviewers = getInterviewersForDay(state, state.day);
 
   const schedule = getAppointmentsForDay(state, state.day).map(
     (appointment) => (
@@ -63,6 +69,7 @@ export default function Application(props) {
         interview={getInterview(state, appointment.interview)}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     )
   );
