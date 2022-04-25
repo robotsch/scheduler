@@ -47,7 +47,7 @@ export default function Appointment(props) {
       props.cancelInterview(id).then(() => transition(EMPTY));
     }
   };
-  console.log(props)
+  console.log(props);
 
   return (
     <Fragment>
@@ -75,7 +75,13 @@ export default function Appointment(props) {
         <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
       )}
       {mode === EDIT && (
-        <Form student={props.interview.student} interviewers={props.interviewers} onCancel={back} onSave={save} />
+        <Form
+          student={props.interview.student}
+          interviewer={props.interview.interviewer.id}
+          interviewers={props.interviewers}
+          onCancel={back}
+          onSave={save}
+        />
       )}
     </Fragment>
   );
