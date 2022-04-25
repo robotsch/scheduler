@@ -21,10 +21,10 @@ export default function useVisualMode(initial) {
 
   // Move back to previous mode in history
   const back = () => {
-    if (history.lenght <= 2) {
+    if (history.lenght < 2) {
       return;
     }
-    setMode(history[history.length - 2]);
+    setMode(history[history.length - 3]);
     setHistory((prev) => retPoppedArr(prev));
   };
   return { mode, transition, back };
