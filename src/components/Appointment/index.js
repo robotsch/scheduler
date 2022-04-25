@@ -15,6 +15,14 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  const save = (studentName, interviewer) => {
+    const interview = {
+      student: studentName, 
+      interviewer
+    }
+    props.bookInterview(props.id, interview)
+  }
+
   return (
     <Fragment>
       <Header time={props.time} />
@@ -26,7 +34,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === CREATE && (
-        <Form interviewers={[]} onCancel={() => back()} />
+        <Form interviewers={[]} onCancel={back} onSave={save} />
       )}
     </Fragment>
   );
