@@ -4,8 +4,9 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Status from "./Status";
-import Form from "./Form";
 import Confirm from "./Confirm";
+import Error from "./Error";
+import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
@@ -14,7 +15,9 @@ export default function Appointment(props) {
   const CREATE = "CREATE";
   const EDIT = "EDIT";
   const SAVING = "SAVING";
+  const ERROR_SAVE = "ERROR_SAVE";
   const DELETING = "DELETING";
+  const ERROR_DELETE = "ERROR_DELETE";
   const CONFIRM = "CONFIRM";
 
   // Import and set default visual modes
@@ -33,7 +36,10 @@ export default function Appointment(props) {
         student: studentName,
         interviewer,
       };
-      props.bookInterview(props.id, interview).then(() => transition(SHOW));
+      props
+        .bookInterview(props.id, interview)
+        .then(() => transition(SHOW))
+        .catch(() => transition(ERROR_SAVE));
     }
   };
 
@@ -44,10 +50,12 @@ export default function Appointment(props) {
     }
     if (mode === CONFIRM) {
       transition(DELETING);
-      props.cancelInterview(id).then(() => transition(EMPTY));
+      props
+        .cancelInterview(id)
+        .then(() => transition(EMPTY))
+        .catch(() => transition(ERROR_DELETE));
     }
   };
-  console.log(props);
 
   return (
     <Fragment>
@@ -70,7 +78,11 @@ export default function Appointment(props) {
         />
       )}
       {mode === SAVING && <Status message="Saving" />}
+      {mode === ERROR_SAVE && <Error message="Failed to create appointment" />}
       {mode === DELETING && <Status message="Deleting" />}
+      {mode === ERROR_DELETE && (
+        <Error message="Failed to delete appoiuntment" />
+      )}
       {mode === CREATE && (
         <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
       )}
