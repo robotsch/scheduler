@@ -45,7 +45,6 @@ export default function Appointment(props) {
 
   // Visual mode and function call to delete existing interview
   const onDelete = (id) => {
-    console.log(mode)
     if (mode !== CONFIRM && mode !== ERROR_DELETE) {
       transition(CONFIRM);
     }
