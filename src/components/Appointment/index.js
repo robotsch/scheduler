@@ -39,13 +39,14 @@ export default function Appointment(props) {
       props
         .bookInterview(props.id, interview)
         .then(() => transition(SHOW))
-        .catch(() => transition(ERROR_SAVE));
+        .catch(() => transition(ERROR_SAVE, true));
     }
   };
 
   // Visual mode and function call to delete existing interview
   const onDelete = (id) => {
-    if (mode !== CONFIRM) {
+    console.log(mode)
+    if (mode !== CONFIRM && mode !== ERROR_DELETE) {
       transition(CONFIRM);
     }
     if (mode === CONFIRM) {
@@ -53,7 +54,7 @@ export default function Appointment(props) {
       props
         .cancelInterview(id)
         .then(() => transition(EMPTY))
-        .catch(() => transition(ERROR_DELETE));
+        .catch(() => transition(ERROR_DELETE, true));
     }
   };
 
@@ -79,9 +80,9 @@ export default function Appointment(props) {
       )}
       {mode === SAVING && <Status message="Saving" />}
       {mode === ERROR_SAVE && <Error message="Failed to create appointment" />}
-      {mode === DELETING && <Status message="Deleting" />}
+      {mode === DELETING && <Status message="Deleting" onClose={back} />}
       {mode === ERROR_DELETE && (
-        <Error message="Failed to delete appointment" />
+        <Error message="Failed to delete appointment" onClose={back} />
       )}
       {mode === CREATE && (
         <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
