@@ -3,14 +3,15 @@ import "./styles.scss";
 import InterviewerList from "../InterviewerList";
 import Button from "../Button";
 
+/**
+ * Form component that displays when creating/editing an appointment
+ * When editing, uses existing student's name, otherwise display placeholder
+ */
+
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
-  /**
-   * Form component that displays when creating/editing an appointment
-   * When editing, uses existing student's name, otherwise display placeholder
-   */
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
