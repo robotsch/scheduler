@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import "./InterviewerList.scss";
 
-export default function Button(props) {
+export default function InterviewerList(props) {
   
   const interviewers = [];
 
