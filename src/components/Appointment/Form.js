@@ -18,11 +18,12 @@ export default function Form(props) {
         <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
-            name={student}
+            name="name"
             type="text"
             defaultValue={student}
             placeholder="Enter Student Name"
             onChange={(e) => setStudent(e.target.value)}
+            data-testid="student-name-input"
           />
         </form>
         <InterviewerList
