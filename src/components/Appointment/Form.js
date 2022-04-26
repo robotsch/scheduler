@@ -23,7 +23,6 @@ export default function Form(props) {
       return;
     }
     props.onSave(student, interviewer);
-    console.log('happening')
   }
 
   return (
