@@ -23,6 +23,7 @@ export default function Form(props) {
       return;
     }
     props.onSave(student, interviewer);
+    console.log('happening')
   }
 
   return (
@@ -51,7 +52,12 @@ export default function Form(props) {
           <Button danger onClick={props.onCancel}>
             Cancel
           </Button>
-          <Button confirm onClick={() => props.onSave(student, interviewer)}>
+          <Button confirm onClick={() => {
+            validate()
+            if(error.length > 0){
+              props.onSave(student, interviewer)
+            }
+            }}>
             Save
           </Button>
         </section>
