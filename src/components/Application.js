@@ -17,9 +17,12 @@ import {
 } from "helpers/selectors";
 
 export default function Application() {
+  // Initialize application data with custom hook
   const { state, setDay, bookInterview, cancelInterview } =
     useApplicationData();
 
+  // Gennerate interviewers list, generate daily schedule
+  // For each appointment, generate Appointment component
   const interviewers = getInterviewersForDay(state, state.day);
   const schedule = getAppointmentsForDay(state, state.day).map(
     (appointment) => (

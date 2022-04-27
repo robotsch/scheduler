@@ -1,13 +1,13 @@
 import React from "react";
 import InterviewerListItem from "./InterviewerListItem";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 import "./InterviewerList.scss";
 
 export default function InterviewerList(props) {
-  
   const interviewers = [];
 
+  // Generate InterviewerListItem components for every interviewer passed in props
   props.interviewers.forEach((interviewer) => {
     interviewers.push(
       <InterviewerListItem
@@ -23,13 +23,12 @@ export default function InterviewerList(props) {
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
-      <ul className="interviewers__list">
-        {interviewers}
-      </ul>
+      <ul className="interviewers__list">{interviewers}</ul>
     </section>
   );
 }
 
+// PropType validation as per Compass
 InterviewerList.propTypes = {
-  interviewers: PropTypes.array.isRequired
-}
+  interviewers: PropTypes.array.isRequired,
+};

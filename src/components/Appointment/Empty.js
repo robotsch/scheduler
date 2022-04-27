@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
+// Empty timeslot component that displays when there is no scheduled appointment
 export default function Empty(props) {
   return (
     <main className="appointment__add">

@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
+// Error component displayed when a save/delete action fails
 export default function Header(props) {
   return (
     <main className="appointment__card appointment__card--error">

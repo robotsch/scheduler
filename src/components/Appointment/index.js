@@ -9,7 +9,9 @@ import Error from "./Error";
 import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 
+// Main appointment component file
 export default function Appointment(props) {
+  // Initialize mode constants
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";

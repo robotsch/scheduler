@@ -24,7 +24,7 @@ export default function useVisualMode(initial) {
     if (history.lenght < 2) {
       return;
     }
-    if(mode === "ERROR_SAVE" || mode === "ERROR_DELETE") {
+    if (mode === "ERROR_SAVE" || mode === "ERROR_DELETE") {
       setMode(history[history.length - 3]);
     } else {
       setMode(history[history.length - 2]);

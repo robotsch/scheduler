@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
+// Animated loading component displayed while a mutating action is happening
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--status">

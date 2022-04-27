@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
+  // Set state defaults
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -9,18 +10,8 @@ export default function useApplicationData() {
     interviewers: {},
   });
 
-  // Set up websocket outside of useEffect using useRef for persistence
-  const ws = useRef(null)
-
   // Grab API data, assign to state when all requests resolve
   useEffect(() => {
-    ws.current = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL)
-    ws.current.onopen = () => {
-      ws.current.send("ping")
-      ws.current.onmessage = (e) => {
-        console.log(e.data)
-      }
-    }
     Promise.all([
       axios.get("/api/days"),
       axios.get("/api/appointments"),
@@ -34,12 +25,10 @@ export default function useApplicationData() {
         interviewers: interviewers.data,
       }));
     });
-    
   }, []);
 
   const setDay = (day) => {
     setState((prev) => ({ ...prev, day }));
-    ws.current.send("ping")
   };
 
   /**
