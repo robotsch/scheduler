@@ -16,15 +16,15 @@ npm start
 
 Landing on the page will display the schedule as-is
 
-[Landing](https://github.com/robotsch/scheduler/blob/main/docs/landing.PNG?raw=true)
+![Landing](https://github.com/robotsch/scheduler/blob/main/docs/landing.PNG?raw=true)
 
 Users can select the day, then add, edit or delete scheduled appointments
 
-[Edit/delete(https://github.com/robotsch/scheduler/blob/main/docs/edit_delete.PNG?raw=true)
+![Edit/delete](https://github.com/robotsch/scheduler/blob/main/docs/edit_delete.PNG?raw=true)
 
 Edit and delete functionality is hidden until the user mouses over an appointment
 
-[Mouseover](https://github.com/robotsch/scheduler/blob/main/docs/mouseover.PNG?raw=true)
+![Mouseover](https://github.com/robotsch/scheduler/blob/main/docs/mouseover.PNG?raw=true)
 
 ## Functional Requirements
 - Development focuses on a single page application (SPA) called Interview
