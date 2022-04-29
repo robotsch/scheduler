@@ -60,17 +60,14 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    return axios
-      .put(`/api/appointments/${id}`, appointment)
-      .then(() => {
-        const days = updateSpots(appointments);
-        setState((prev) => ({
-          ...prev,
-          days,
-          appointments,
-        }));
-      })
-      .catch((err) => console.log(err));
+    return axios.put(`/api/appointments/${id}`, appointment).then(() => {
+      const days = updateSpots(appointments);
+      setState((prev) => ({
+        ...prev,
+        days,
+        appointments,
+      }));
+    });
   };
 
   // Deletes an interview, updates state if successful
