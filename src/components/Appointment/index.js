@@ -80,7 +80,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === SAVING && <Status message="Saving" />}
-      {mode === ERROR_SAVE && <Error message="Failed to create appointment" />}
+      {mode === ERROR_SAVE && <Error message="Failed to create appointment" onClose={back} />}
       {mode === DELETING && <Status message="Deleting" onClose={back} />}
       {mode === ERROR_DELETE && (
         <Error message="Failed to delete appointment" onClose={back} />
