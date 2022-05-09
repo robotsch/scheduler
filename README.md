@@ -1,5 +1,7 @@
 # Interview Scheduler
 
+A modern single-page React application that allows users to create, view, edit and delete interview appointments. Interview data is saved to, and pulled from, the [Scheduler API](https://github.com/lighthouse-labs/scheduler-api).
+
 ## Setup
 
 Install dependencies with `npm install`.
